@@ -4,8 +4,9 @@ import os
 from dotenv import load_dotenv
 
 # Make a request to the Weatherstack API
+load_dotenv()
 api_key = os.getenv("API_KEY") 
-city = 'New York'
+city = input()
 response = requests.get(f'http://api.weatherstack.com/current?access_key={api_key}&query={city}')
 
 # Convert the response to a dictionary
