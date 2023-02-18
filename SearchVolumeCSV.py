@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Read in the Google Trends data into a Pandas dataframe
-df = pd.read_csv('CupcakeInterest.csv')
+df = pd.read_csv('CSV Files/CupcakeInterest.csv')
 
 # Create a figure and axis object for the plot
 fig, ax = plt.subplots()
