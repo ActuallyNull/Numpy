@@ -4,7 +4,7 @@ from mpl_toolkits.mplot3d import Axes3D
 
 # define torus parameters
 r1 = 5
-r2 = 10
+r2 = 1  
 
 # generate torus coords
 theta, phi = np.meshgrid(np.linspace(0, 2*np.pi, 30), np.linspace(0, 2*np.pi, 30))
@@ -19,5 +19,5 @@ z = r2*np.sin(phi)
 # plot torus
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
-ax.plot_surface(x, y, z)
+ax.plot_surface(x, y, z, cmap='plasma')
 plt.show()
