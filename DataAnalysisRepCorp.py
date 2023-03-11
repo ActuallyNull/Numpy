@@ -14,20 +14,27 @@ MedianP2Sales = subsetSales['Q-P2'].mean()
 MedianP3Sales = subsetSales['Q-P3'].mean()
 MedianP4Sales = subsetSales['Q-P4'].mean()
 MedianP14SalesArray = [MedianP1Sales, MedianP2Sales, MedianP3Sales, MedianP4Sales]
+
+MedianP1Profit = subsetProfit['S-P1'].mean()
+MedianP2Profit = subsetProfit['S-P2'].mean()
+MedianP3Profit = subsetProfit['S-P3'].mean()
+MedianP4Profit = subsetProfit['S-P4'].mean()
+MedianP14ProfitArray = [MedianP1Profit, MedianP2Profit, MedianP3Profit, MedianP4Profit]
+print(MedianP14ProfitArray)
 fig, ax = plt.subplots()
 
+fig2, ax2 = plt.subplots()
 # plot the subsets of the data and set the labels
 for i in range(len(MedianP14SalesArray)):
-    ax.bar(models[i], MedianP14SalesArray[i], color=colors[i], label='Quantity of P{} Sold'.format(i+1))
+    ax2.bar(models[i], MedianP14SalesArray[i], color=colors[i], label='Revenue from P{}'.format(i+1))
 ax.set_ylabel('Amount of models sold')
 
-fig2, ax2 = plt.subplots()
 
-ax2.plot(subsetProfit['S-P1'], label='Amount of money from P1')
-ax2.plot(subsetProfit['S-P2'], label='Amount of money from P2')
-ax2.plot(subsetProfit['S-P3'], label='Amount of money from P3')
-ax2.plot(subsetProfit['S-P4'], label='Amount of money from P4')
-ax2.set_ylabel('Amount of money from models')
+
+for i in range(len(MedianP14ProfitArray)):
+    ax.bar(models[i], MedianP14ProfitArray[i], color=colors[i], label='Quantity of P{} Sold'.format(i+1))
+ax2.set_ylabel('Revenue from models sold ($)')
+
 # set the title and legend
 ax.set_title('Quantity of P1-4 Sold')
 ax.legend()
